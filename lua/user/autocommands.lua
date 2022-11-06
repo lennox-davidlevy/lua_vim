@@ -28,6 +28,11 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _vertSplit
+    autocmd!
+    autocmd VimEnter * hi WinSeparator cterm=bold gui=bold guifg=#d7ffd7 
+  augroup end
 ]]
 
 -- Autoformat

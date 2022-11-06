@@ -44,10 +44,12 @@ keymap("n", "<leader>u", ":UndotreeToggle <CR>", opts) -- Open Navbar
 keymap(
 	"n",
 	"<C-p>",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes'))<cr>",
 	opts
 )
-keymap("n", "<C-f>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+-- keymap("n", "<C-f>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+keymap("n", "<C-f>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Null-ls
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
