@@ -7,6 +7,7 @@ local servers = {
 	-- "bashls",
 	"jsonls",
 	"yamlls",
+  "ansiblels"
 }
 
 local settings = {
