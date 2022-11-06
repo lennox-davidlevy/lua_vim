@@ -37,6 +37,9 @@ keymap("n", "<leader>o", ":on<CR>", opts)
 -- Navbar
 keymap("n", "<leader>n", ":NvimTreeToggle <CR>", opts) -- Open Navbar
 
+-- Undo Tree
+keymap("n", "<leader>u", ":UndotreeToggle <CR>", opts) -- Open Navbar
+
 -- Telescope
 keymap(
 	"n",
