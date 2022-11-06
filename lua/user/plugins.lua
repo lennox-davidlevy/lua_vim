@@ -60,6 +60,13 @@ return packer.startup(function(use)
 	-- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
+  use {"morhetz/gruvbox"}
+  use {"sainnhe/everforest"}
+  use {"ajmwagar/vim-deus"}
+  use {"aereal/vim-colors-japanesque"}
+  use {"fcpg/vim-farout"}
+  use {"hardselius/warlock"}
+
 
 	-- Cmp 
   use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
@@ -82,6 +89,9 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+
+  -- Tmux
+  use { "christoomey/vim-tmux-navigator"}
 
 	-- Treesitter
 	use {

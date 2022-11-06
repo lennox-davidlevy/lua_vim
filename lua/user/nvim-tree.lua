@@ -23,7 +23,8 @@ nvim_tree.setup {
         symlink = "",
         folder = {
           arrow_open = "",
-          arrow_closed = "",
+          -- arrow_closed = "",
+          arrow_closed = ">",
           default = "",
           open = "",
           empty = "",
@@ -44,10 +45,11 @@ nvim_tree.setup {
     },
   },
   diagnostics = {
-    enable = true,
+    enable = false,
     show_on_dirs = true,
     icons = {
-      hint = "",
+      -- hint = "",
+      hint = "",
       info = "",
       warning = "",
       error = "",
