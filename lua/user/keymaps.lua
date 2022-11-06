@@ -52,6 +52,9 @@ keymap("n", "<C-f>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 -- Null-ls
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
 
+-- Clear Last Search
+keymap("n", "<CR>", ":noh<CR>", opts)
+
 -- Navigate buffers
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
