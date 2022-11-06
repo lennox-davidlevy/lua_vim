@@ -19,13 +19,14 @@ vim.g.maplocalleader = ","
 --   command_mode = "c",
 
 -- Normal --
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Splits
+--  Splits
 keymap("n", "<leader>s", ":sp<CR> <C-w>j<CR>", opts)
 keymap("n", "<leader>v", ":vsp<CR> <C-w>l<CR>", opts)
 
