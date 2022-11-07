@@ -8,7 +8,7 @@ local servers = {
 	"jsonls",
 	"yamlls",
   "ansiblels",
-  -- "emmet_ls"
+  "emmet_ls"
 }
 
 local settings = {

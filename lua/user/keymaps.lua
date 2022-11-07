@@ -26,6 +26,9 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Close Buffer
+keymap("n", "<C-c>", "<cmd>Bdelete!<CR>", opts)
+
 --  Splits
 keymap("n", "<leader>s", ":sp<CR> <C-w>j<CR>", opts)
 keymap("n", "<leader>v", ":vsp<CR> <C-w>l<CR>", opts)
@@ -44,12 +47,13 @@ keymap("n", "<leader>u", ":UndotreeToggle <CR>", opts) -- Open Navbar
 keymap(
 	"n",
 	"<C-p>",
-	-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes'))<cr>",
+	-- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+	-- "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes'))<CR>",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes'))<CR>",
 	opts
 )
 -- keymap("n", "<C-f>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
-keymap("n", "<C-f>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- Null-ls
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
