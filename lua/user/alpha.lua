@@ -3,14 +3,15 @@ if not status_ok then
 	return
 end
 
+
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-[[    __  ___                  ___                     __]],
-[[   /  |/  /___ ___  ______ _/   |  ____  ____ ____  / /]],
-[[  / /|_/ / __ `/ / / / __ `/ /| | / __ \/ __ `/ _ \/ / ]],
-[[ / /  / / /_/ / /_/ / /_/ / ___ |/ / / / /_/ /  __/ /  ]],
-[[/_/  /_/\__,_/\__, /\__,_/_/  |_/_/ /_/\__, /\___/_/   ]],
-[[             /____/                   /____/           ]],
+	[[    __  ___                  ___                     __]],
+	[[   /  |/  /___ ___  ______ _/   |  ____  ____ ____  / /]],
+	[[  / /|_/ / __ `/ / / / __ `/ /| | / __ \/ __ `/ _ \/ / ]],
+	[[ / /  / / /_/ / /_/ / /_/ / ___ |/ / / / /_/ /  __/ /  ]],
+	[[/_/  /_/\__,_/\__, /\__,_/_/  |_/_/ /_/\__, /\___/_/   ]],
+	[[             /____/                   /____/           ]],
 }
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
@@ -23,12 +24,13 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
--- NOTE: requires the fortune-mod package to work
-	-- local handle = io.popen("fortune")
-	-- local fortune = handle:read("*a")
-	-- handle:close()
-	-- return fortune
-	return "Maya Is My Girl"
+	local mayaQuotes = {
+		"Maya: 'OoooohHhhAhhhh' *gurgle*",
+		"Maya: *farts*",
+		"Maya: 'Ha! Ha! Ha!'",
+		"Maya: *cries*",
+	}
+	return mayaQuotes[math.random(#mayaQuotes)]
 end
 
 dashboard.section.footer.val = footer()
@@ -40,3 +42,4 @@ dashboard.section.buttons.opts.hl = "Keyword"
 dashboard.opts.opts.noautocmd = true
 -- vim.cmd([[autocmd User AlphaReady echo 'ready']])
 alpha.setup(dashboard.opts)
+
