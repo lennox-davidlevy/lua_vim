@@ -1,3 +1,4 @@
+-- npm i -g vscode-langservers-extracted
 local default_schemas = nil
 local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
 if status_ok then

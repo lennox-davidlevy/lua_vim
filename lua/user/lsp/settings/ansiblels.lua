@@ -1,3 +1,5 @@
+-- npm install -g @ansible/ansible-language-server
+
 return {
   filetypes = {
        "yaml.ansible",

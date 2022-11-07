@@ -1,3 +1,5 @@
+-- npm install -g emmet-ls
+
 return {
   filetypes = {
     "html",

@@ -7,10 +7,11 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
-
-		prompt_prefix = " ",
-		selection_caret = " ",
-		path_display = { "smart" },
+		file_ignore_patterns = { "node_modules", ".git" },
+		prompt_prefix = "",
+		selection_caret = "➜ ",
+		path_display = { truncate = 3 },
+		layout_config = { preview_width = 0.55 },
 
 		mappings = {
 			i = {
@@ -36,8 +37,8 @@ telescope.setup({
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
 
-				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+				-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+				-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
@@ -78,19 +79,6 @@ telescope.setup({
 		},
 	},
 	pickers = {
-		find_files = {
-			mappings = {
-				n = {
-					["fd"] = function(prompt_bufnr)
-						local selection = require("telescope.actions.state").get_selected_entry()
-						local dir = vim.fn.fnamemodify(selection.path, ":p:h")
-						require("telescope.actions").close(prompt_bufnr)
-						-- Depending on what you want put `cd`, `lcd`, `tcd`
-						vim.cmd(string.format("silent lcd %s", dir))
-					end,
-				},
-			},
-		},
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
 		--   picker_config_key = value,
