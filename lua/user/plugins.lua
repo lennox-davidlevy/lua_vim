@@ -52,9 +52,9 @@ return packer.startup(function(use)
 
 	-- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
-  use {"junegunn/seoul256.vim"}
   use {"Shadorain/shadotheme"}
   use {"cocopon/iceberg.vim"}
+  use {"sjl/badwolf"}
 
 	-- Cmp 
   -- use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" }
@@ -75,6 +75,9 @@ return packer.startup(function(use)
 
   -- HTML
   use {"windwp/nvim-ts-autotag"}
+
+  -- CSS
+  use {"lilydjwg/colorizer"}
 
 	-- Git
 	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
