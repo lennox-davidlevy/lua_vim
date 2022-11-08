@@ -16,6 +16,9 @@ local diagnostics = {
 	always_visible = true,
 }
 
+-- #282828
+-- #3c3836
+
 local diff = {
 	"diff",
 	colored = false,
@@ -71,8 +74,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		-- theme = "auto",
-		theme = "nord",
+		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
