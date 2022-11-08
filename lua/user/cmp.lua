@@ -8,6 +8,7 @@ if not snip_status_ok then
 	return
 end
 
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -136,10 +137,10 @@ cmp.setup({
 		end
 		return true
 	end,
-	performance = {
-		debounce = 250,
-		throttle = 250,
-	},
+	-- performance = {
+	-- 	debounce = 150,
+	-- 	throttle = 150,
+	-- },
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
@@ -184,7 +185,8 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		-- fields = { "kind", "abbr", "menu" },
+		fields = { "abbr", "menu" },
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])

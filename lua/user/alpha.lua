@@ -10,17 +10,15 @@ dashboard.section.header.val = {
 	[[   /  |/  /___ ___  ______ _/   |  ____  ____ ____  / /]],
 	[[  / /|_/ / __ `/ / / / __ `/ /| | / __ \/ __ `/ _ \/ / ]],
 	[[ / /  / / /_/ / /_/ / /_/ / ___ |/ / / / /_/ /  __/ /  ]],
-	[[/_/  /_/\__,_/\__, /\__,_/_/  |_/_/ /_/\__, /\___/_/   ]],
+	[[/_/  /_/\__/_/\__, /\__/_/_/  |_/_/ /_/\__, /\___/_/   ]],
 	[[             /____/                   /____/           ]],
 }
 dashboard.section.buttons.val = {
-	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
-	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
-	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+	dashboard.button("r", "Recently used files", ":Telescope oldfiles <CR>"),
+	dashboard.button("f", "Find file", ":Telescope find_files <CR>"),
+	dashboard.button("p", "Find project", ":Telescope projects <CR>"),
+	dashboard.button("t", "Find text", ":Telescope live_grep <CR>"),
+	dashboard.button("q", "Quit", ":qa<CR>"),
 }
 
 local function footer()
@@ -29,6 +27,9 @@ local function footer()
 		"Maya: *farts*",
 		"Maya: 'Ha! Ha! Ha!'",
 		"Maya: *cries*",
+    "Maya: *headbutts* *gurgle*",
+    "Maya: 'Ah!' *kicks legs*",
+
 	}
 	return mayaQuotes[math.random(#mayaQuotes)]
 end

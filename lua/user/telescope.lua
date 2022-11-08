@@ -9,9 +9,9 @@ telescope.setup({
 	defaults = {
 		file_ignore_patterns = { "node_modules", ".git" },
 		prompt_prefix = "",
-		selection_caret = "➜ ",
-		path_display = { truncate = 3 },
-		layout_config = { preview_width = 0.55 },
+		selection_caret = "> ",
+		path_display = { "smart" },
+		layout_config = { preview_width = 0.45 },
 
 		mappings = {
 			i = {
@@ -37,8 +37,6 @@ telescope.setup({
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
 
-				-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-				-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
@@ -79,6 +77,15 @@ telescope.setup({
 		},
 	},
 	pickers = {
+		find_files = {
+			disable_devicons = true,
+		},
+		live_grep = {
+			disable_devicons = true,
+		},
+		oldfiles = {
+			disable_devicons = true,
+		},
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
 		--   picker_config_key = value,
