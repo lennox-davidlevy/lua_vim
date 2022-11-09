@@ -34,11 +34,6 @@ vim.cmd [[
     autocmd VimEnter * hi WinSeparator cterm=bold gui=bold guifg=#d7ffd7 
   augroup end
 
-  augroup _endOfBuffer
-    autocmd!
-    autocmd VimEnter * hi EndOfBuffer guifg=bg
-  augroup end
-
 ]]
 
 -- Autoformat
