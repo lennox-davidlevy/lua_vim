@@ -7,18 +7,21 @@ local servers = {
 	-- "bashls",
 	"jsonls",
 	"yamlls",
-  "ansiblels",
-  "emmet_ls",
-  "gopls"
+	"ansiblels",
+	"emmet_ls",
+	"gopls",
 }
 
 local settings = {
 	ui = {
 		border = "none",
 		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
+			-- package_installed = "◍",
+			-- package_pending = "◍",
+			-- package_uninstalled = "◍",
+			package_installed = "i",
+			package_pending = "p",
+			package_uninstalled = "u",
 		},
 	},
 	log_level = vim.log.levels.INFO,

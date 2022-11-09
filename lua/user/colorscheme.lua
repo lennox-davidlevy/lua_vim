@@ -1,4 +1,5 @@
-local colorscheme = "warlock"
+local colorscheme = "warlock_custom"
+-- local colorscheme = "warlock_transparent"
 
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
