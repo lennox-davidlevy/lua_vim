@@ -15,61 +15,33 @@ local check_backspace = function()
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
--- local lspkind_comparator = function(conf)
--- 	local lsp_types = require("cmp.types").lsp
--- 	return function(entry1, entry2)
--- 		if entry1.source.name ~= "nvim_lsp" then
--- 			if entry2.source.name == "nvim_lsp" then
--- 				return false
--- 			else
--- 				return nil
--- 			end
--- 		end
--- 		local kind1 = lsp_types.CompletionItemKind[entry1:get_kind()]
--- 		local kind2 = lsp_types.CompletionItemKind[entry2:get_kind()]
-
--- 		local priority1 = conf.kind_priority[kind1] or 0
--- 		local priority2 = conf.kind_priority[kind2] or 0
--- 		if priority1 == priority2 then
--- 			return nil
--- 		end
--- 		return priority2 < priority1
--- 	end
--- end
-
--- local label_comparator = function(entry1, entry2)
--- 	return entry1.completion_item.label < entry2.completion_item.label
--- end
-
---   פּ ﯟ   some other good icons
 local kind_icons = {
-	Text = "",
-	Method = "m",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	Text = "te",
+	Method = "me",
+	Function = "fun",
+	Constructor = "con",
+	Field = "fi",
+	Variable = "var",
+	Class = "cls",
+	Interface = "int",
+	Module = "mod",
+	Property = "prp",
+	Unit = "unt",
+	Value = "val",
+	Enum = "enm",
+	Keyword = "key",
+	Snippet = "snp",
+	Color = "col",
+	File = "fil",
+	Reference = "ref",
+	Folder = "fol",
+	EnumMember = "En",
+	Constant = "con",
+	Struct = "stu",
+	Event = "evn",
+	Operator = "opr",
+	TypeParameter = "typ",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
 	snippet = {
@@ -77,40 +49,6 @@ cmp.setup({
 			luasnip.lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
-	-- sorting = {
-	-- 	comparators = {
-	-- 		lspkind_comparator({
-	-- 			kind_priority = {
-	-- 				Keyword = 12,
-	-- 				Field = 11,
-	-- 				Property = 11,
-	-- 				Variable = 11,
-	-- 				Function = 10,
-	-- 				Enum = 10,
-	-- 				EnumMember = 10,
-	-- 				Event = 10,
-	-- 				Method = 10,
-	-- 				Operator = 10,
-	-- 				Reference = 10,
-	-- 				Struct = 10,
-	-- 				File = 8,
-	-- 				Folder = 8,
-	-- 				Constant = 5,
-	-- 				Class = 5,
-	-- 				Color = 5,
-	-- 				Module = 5,
-	-- 				Constructor = 1,
-	-- 				Interface = 1,
-	-- 				Text = 1,
-	-- 				TypeParameter = 1,
-	-- 				Unit = 1,
-	-- 				Value = 1,
-	-- 				Snippet = 0,
-	-- 			},
-	-- 		}),
-	-- 		label_comparator,
-	-- 	}
-	-- },
 	sorting = {
 		priority_weight = 1.0,
 		comparators = {
@@ -184,8 +122,8 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		-- fields = { "kind", "abbr", "menu" },
-		fields = { "abbr", "menu" },
+		fields = { "kind", "abbr", "menu" },
+		-- fields = { "abbr", "menu" },
 		format = function(entry, vim_item)
 			-- Kind icons
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])

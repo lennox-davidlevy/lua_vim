@@ -86,6 +86,9 @@ telescope.setup({
 		oldfiles = {
 			disable_devicons = true,
 		},
+    buffers = {
+			disable_devicons = true,
+    }
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
 		--   picker_config_key = value,
