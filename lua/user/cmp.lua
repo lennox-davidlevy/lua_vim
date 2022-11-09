@@ -8,7 +8,6 @@ if not snip_status_ok then
 	return
 end
 
-
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -201,8 +200,8 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "nvim_lsp", max_item_count = 30, keyword_length = 3 },
-		{ name = "buffer", keyword_length = 3 },
+		{ name = "nvim_lsp", max_item_count = 30 },
+		{ name = "buffer" },
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "nvim_lua" },
