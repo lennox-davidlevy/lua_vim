@@ -15,12 +15,38 @@ local check_backspace = function()
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
+local lspkind_comparator = function(conf)
+	local lsp_types = require("cmp.types").lsp
+	return function(entry1, entry2)
+		if entry1.source.name ~= "nvim_lsp" then
+			if entry2.source.name == "nvim_lsp" then
+				return false
+			else
+				return nil
+			end
+		end
+		local kind1 = lsp_types.CompletionItemKind[entry1:get_kind()]
+		local kind2 = lsp_types.CompletionItemKind[entry2:get_kind()]
+
+		local priority1 = conf.kind_priority[kind1] or 0
+		local priority2 = conf.kind_priority[kind2] or 0
+		if priority1 == priority2 then
+			return nil
+		end
+		return priority2 < priority1
+	end
+end
+
+local label_comparator = function(entry1, entry2)
+	return entry1.completion_item.label < entry2.completion_item.label
+end
+
 local kind_icons = {
-	Text = "te",
-	Method = "me",
+	Text = "txt",
+	Method = "mtd",
 	Function = "fun",
 	Constructor = "con",
-	Field = "fi",
+	Field = "fld",
 	Variable = "var",
 	Class = "cls",
 	Interface = "int",
@@ -29,18 +55,18 @@ local kind_icons = {
 	Unit = "unt",
 	Value = "val",
 	Enum = "enm",
-	Keyword = "key",
+	Keyword = "kwd",
 	Snippet = "snp",
 	Color = "col",
 	File = "fil",
 	Reference = "ref",
 	Folder = "fol",
-	EnumMember = "En",
+	EnumMember = "Enm",
 	Constant = "con",
-	Struct = "stu",
-	Event = "evn",
+	Struct = "stt",
+	Event = "evt",
 	Operator = "opr",
-	TypeParameter = "typ",
+	TypeParameter = "tpr",
 }
 
 cmp.setup({
@@ -57,6 +83,38 @@ cmp.setup({
 			cmp.config.compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
 			cmp.config.compare.offset,
 			cmp.config.compare.order,
+			-- cmp.config.compare.kind,
+
+			lspkind_comparator({
+				kind_priority = {
+					Field = 11,
+					Property = 11,
+					Constant = 10,
+					Enum = 0,
+					EnumMember = 0,
+					Event = 10,
+					Function = 10,
+					Method = 10,
+					Operator = 10,
+					Reference = 10,
+					Struct = 10,
+					Variable = 9,
+					File = 8,
+					Folder = 8,
+					Class = 5,
+					Color = 5,
+					Module = 5,
+					Keyword = 2,
+					Constructor = 1,
+					Interface = 1,
+					Snippet = 0,
+					Text = 1,
+					TypeParameter = 1,
+					Unit = 1,
+					Value = 1,
+				},
+			}),
+			label_comparator,
 		},
 	},
 	enabled = function()
@@ -74,10 +132,10 @@ cmp.setup({
 		end
 		return true
 	end,
-	-- performance = {
-	-- 	debounce = 150,
-	-- 	throttle = 150,
-	-- },
+	performance = {
+		debounce = 350,
+		throttle = 150,
+	},
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
@@ -138,11 +196,11 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "nvim_lsp", max_item_count = 30 },
+		{ name = "nvim_lsp", max_item_count = 30, keyword_length = 3 },
 		{ name = "buffer" },
-		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "nvim_lua" },
+		{ name = "luasnip" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
