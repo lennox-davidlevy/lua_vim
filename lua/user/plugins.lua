@@ -52,7 +52,6 @@ return packer.startup(function(use)
 
 	-- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
-  -- use {"hardselius/warlock", commit = "12c7772d35fd6956940d716bb71c9f3855a45a12"}
   use {"lennox-davidlevy/warlock_transparent"}
 
 	-- Cmp 
@@ -88,8 +87,6 @@ return packer.startup(function(use)
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
 
   -- Markdown
-  -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   -- Nav Bar
