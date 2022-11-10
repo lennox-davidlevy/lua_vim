@@ -33,7 +33,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-x>", "<cmd>Bdelete!<CR>", opts)
 
 -- Git
-keymap("n", "<C-g>", "<cmd>:Git<CR>", opts)
+keymap("n", "<leader>gg", "<cmd>:Git<CR>", opts)
 keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", opts)
 keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", opts)
 keymap("n", "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<cr>", opts)
@@ -69,7 +69,7 @@ keymap(
 	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 	opts
 )
-keymap("n", "<leader>cs", "<cmd>Telescope colorscheme<CR>", opts)
+keymap("n", "<leader>c", "<cmd>Telescope colorscheme<CR>", opts)
 
 -- CMP
 keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
@@ -79,10 +79,7 @@ keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
 keymap("n", "<leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
-keymap("n", "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", opts)
 keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-keymap("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-keymap("n", "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
 
 -- Terminal
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
@@ -93,7 +90,7 @@ keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", opts)
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- Clear Last Search
-keymap("n", "<CR>", ":noh<CR>", opts)
+-- keymap("n", "<CR>", ":noh<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<tab>", ":bnext<CR>", opts)
