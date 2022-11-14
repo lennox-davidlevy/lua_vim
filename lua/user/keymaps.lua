@@ -21,7 +21,7 @@ vim.g.maplocalleader = ","
 -- Normal --
 
 -- Alpha
-keymap("n", "<leader>a", "<cmd>Alpha<cr>", opts)
+keymap("n", "<leader>a", "<cmd>Alpha<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -34,17 +34,18 @@ keymap("n", "<C-x>", "<cmd>Bdelete!<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>:Git<CR>", opts)
-keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", opts)
-keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", opts)
-keymap("n", "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<cr>", opts)
-keymap("n", "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", opts)
-keymap("n", "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", opts)
-keymap("n", "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", opts)
-keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", opts)
-keymap("n", "<leader>go", "<cmd>Telescope git_status<cr>", opts)
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts)
-keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts)
+keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<CR>", opts)
+keymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", opts)
+keymap("n", "<leader>gl", "<cmd>lua require 'gitsigns'.blame_line()<CR>", opts)
+keymap("n", "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", opts)
+keymap("n", "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", opts)
+keymap("n", "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", opts)
+keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", opts)
+keymap("n", "<leader>go", "<cmd>Telescope git_status<CR>", opts)
+keymap("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", opts)
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", opts)
 keymap("n", "<leader>gd", "<cmd>Gitsigns diffthis HEAD<CR>", opts)
+keymap("n", "<leader>gt", "<cmd>Gitsigns toggle_deleted<CR>", opts)
 
 --  Splits
 keymap("n", "<leader>s", ":sp<CR> <C-w>j<CR>", opts)
@@ -66,7 +67,7 @@ keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap(
 	"n",
 	"<leader>b",
-	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
 	opts
 )
 keymap("n", "<leader>c", "<cmd>Telescope colorscheme<CR>", opts)
@@ -75,16 +76,20 @@ keymap("n", "<leader>c", "<cmd>Telescope colorscheme<CR>", opts)
 keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 --LSP
-keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
-keymap("n", "<leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
-keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
-keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+keymap("n", "<leader>lw", "<cmd>Telescope diagnostics<CR>", opts)
+keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<CR>", opts)
+keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
+    -- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    -- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 -- Terminal
-keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
-keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", opts)
-keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", opts)
+keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", opts)
+keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", opts)
+keymap("n", "<leader>tv", "<cmd>ToggleTerm size=60 direction=vertical<CR>", opts)
+keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<CR>", opts)
+keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", opts)
 
 -- Null-ls
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
@@ -99,7 +104,6 @@ keymap("n", "<S-tab>", ":bprevious<CR>", opts)
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
